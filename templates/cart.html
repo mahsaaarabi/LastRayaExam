@@ -41,9 +41,7 @@
           <h4>count <span id="count"><script>document.write(`${localStorage.length}`)</script></span></h4>
           <h4>total <span id="total">$<script>document.write(`${Total}`)</script></span></h4>
         </div>
-        <form action="" method="post">
-          {% csrf_token %}
-          <input type="hidden" name="type" value="reset">
+        <form method="post">
           <button class="btn" type="button" onclick="SubmitCartData()">
             <p>Buy</p>
           </button>
@@ -54,10 +52,12 @@
   <script src="{% static 'js/product.js' %}"></script>
   <script>
     function SubmitCartData() {
-      document.getElementById("count").innerText = "0";
-      document.getElementById("total").innerText = "$0";
-      localStorage.clear();
-      alert('سفارش شما با موفقیت تکمیل شد!');
+      if(localStorage.length>0){
+        localStorage.clear();
+        alert('محصول شما با موفقیت ثبت شد!')
+      }else{
+        alert('سبد خرید شما خالی است.')
+      }
       document.location = '../';
     }
   </script>

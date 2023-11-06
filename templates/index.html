@@ -27,7 +27,7 @@
               <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="m19.26 9.696l1.385 9A2 2 0 0 1 18.67 21H5.33a2 2 0 0 1-1.977-2.304l1.385-9A2 2 0 0 1 6.716 8h10.568a2 2 0 0 1 1.977 1.696ZM14 5a2 2 0 1 0-4 0" />
             </svg>
-            <b id="product_count" data-count="{{count}}">0</b>
+            <b id="product_count" data-count="{{count}}"><script>document.write(localStorage.length)</script></b>
           </span>
         </button>
         <img src="../static/images/adidas-logo.jpg" alt="" style="width: 70px;">
@@ -39,7 +39,7 @@
             <div class="product-item-cover">
               <div class="product-item-cover-image">
                 <img class="shoes" src="{{product.image.url}}" id="image{{product.id}}" alt="category" />
-                <form method="post" action="">
+                <form method="post">
                   {% csrf_token %}
                   <input type="hidden" name="product-id" value="{{product.id}}" />
                   <input type="hidden" name="href" value="main" />
@@ -59,7 +59,6 @@
       </main>
     </div>
   </div>
-  <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/product.js' %}"></script>
 </body>
 

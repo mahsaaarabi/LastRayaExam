@@ -145,6 +145,7 @@ body {
   background-color: rgba(230, 230, 230, 0.5);
   backdrop-filter: blur(10px);
   font-size: 20px;
+  width: 200px;
 }
 .product-item-cover-image button:hover {
   border: 1px solid red;
